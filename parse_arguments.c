@@ -1,9 +1,76 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "push_swap.h"
+
+//take the input and store it in the stack;
 
 
+int	is_duplicate(t_stack *stack, int number)
+{
+	while (stack)
+	{
+		if (stack->number == number)
+			return (1);             //duplicate found
+		else
+			stack = stack->next;	
+	}
+	return (0);
+}
 
-//  In case of error, it must display "Error" followed by an ’\n’ on the standard error.
-// Errors include, for example: some arguments not being integers, some arguments
-// exceeding the integer limits, and/or the presence of duplicates.
+void	free_split(char **input)
+{
+	int	i;
+
+	i = 0;
+	while (input[i])
+	{
+		free(input[i]);
+		i++;
+	}
+	free(input);
+}
+
+t_stack	*parse_arguments(int argc, char *argv[])
+{
+	t_stack	*stack;
+	char	**inputs;
+	int		i;
+	int		number;
+
+	if (argc == 2)
+		inputs = ft_split(argv[1]);
+	else
+		inputs = &argv[1];
+	i = 0;
+	stack = NULL;
+	while (inputs[i])
+	{
+		if (!is_valid_number(inputs[i]))
+			error_exit();
+		number = ft_atoi(inputs[i]);
+		if (is_duplicate(stack, number))              //if stack is NULL, returns 0
+			error_exit();
+		add_back(&stack, new_node(number));          //if *stack is NULL, this is handled in add_back function
+		i++;	
+	}
+	//if input was allocated by ft_split
+	if (argc == 2)
+		free_split(inputs);
+	return (stack);
+}
+
+int	main(int argc, char *argv[])
+{
+	t_stack	*stack_a;
+	int		i;
+
+	stack_a = parse_arguments(argc, argv);
+	if (!stack_a)
+		error_exit();
+	i = 1;
+	while (stack_a)
+	{
+		printf("value %d: %d\n", i, stack_a->number);
+		stack_a = stack_a->next;
+	}
+	free(stack_a);
+	return 0;
+}

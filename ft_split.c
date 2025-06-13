@@ -36,7 +36,6 @@ char	**ft_split(char *str)
 {
 	int		i;
 	char	**output;
-	int		start;
 	int		wc;
 	int		j;
 
@@ -59,16 +58,24 @@ char	**ft_split(char *str)
 }
 
 
-int main()
-{
-	char str[] = "hello world aha che";
-	char **output = ft_split(str);
+// int main()
+// {
+// 	char str[] = "hello world aha che";
+// 	char **output = ft_split(str);
 
-	int i = 0;
-	while (output[i])
-	{
-		printf("%s\n", output[i]);
-		i++;
-	}
-	return 0;
-}
+// 	int i = 0;
+// 	while (output[i])
+// 	{
+// 		printf("%s\n", output[i]);
+// 		i++;
+// 	}
+
+// 	i--;
+// 	while (i >= 0)
+// 	{
+// 		free(output[i]);
+// 		i--;
+// 	}
+// 	free(output);
+// 	return 0;
+// }
