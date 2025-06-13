@@ -33,5 +33,7 @@ void	error_exit(void);
 int	is_valid_number(char *str);
 void	check_overflow(long result, int sign);
 int	ft_atoi(char *str);
+int	is_sorted(t_stack *stack);
+void	free_stack(t_stack *stack);
 
 #endif

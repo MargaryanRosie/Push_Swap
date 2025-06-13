@@ -15,18 +15,6 @@ int	is_duplicate(t_stack *stack, int number)
 	return (0);
 }
 
-void	free_split(char **input)
-{
-	int	i;
-
-	i = 0;
-	while (input[i])
-	{
-		free(input[i]);
-		i++;
-	}
-	free(input);
-}
 
 t_stack	*parse_arguments(int argc, char *argv[])
 {
@@ -65,12 +53,17 @@ int	main(int argc, char *argv[])
 	stack_a = parse_arguments(argc, argv);
 	if (!stack_a)
 		error_exit();
+	if (is_sorted(stack_a))
+	{
+		free_stack(stack_a);
+		return (0);
+	}
 	i = 1;
 	while (stack_a)
 	{
 		printf("value %d: %d\n", i, stack_a->number);
 		stack_a = stack_a->next;
 	}
-	free(stack_a);
+	free_stack(stack_a);
 	return 0;
 }
