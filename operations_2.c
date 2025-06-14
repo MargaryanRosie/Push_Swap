@@ -58,13 +58,14 @@ void	rra(t_stack **a, int flag)
 	last_node = *a;
 	while (last_node->next)
 		last_node = last_node->next;
-	last_node->prev->next = NULL;
+	if (last_node->prev)
+		last_node->prev->next = NULL;
 	last_node->prev = NULL;
 	last_node->next = first_node;
 	first_node->prev = last_node;
 	*a = last_node;
 	if (flag == 0)
-		write(1, "rra\n", 3);
+		write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **b, int flag)
@@ -78,18 +79,19 @@ void	rrb(t_stack **b, int flag)
 	last_node = *b;
 	while (last_node->next)
 		last_node = last_node->next;
-	last_node->prev->next = NULL;
+	if (last_node->prev)
+		last_node->prev->next = NULL;
 	last_node->prev = NULL;
 	last_node->next = first_node;
 	first_node->prev = last_node;
 	*b = last_node;
 	if (flag == 0)
-		write(1, "rrb\n", 3);
+		write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack **a, t_stack **b)
 {
 	rra(a, 1);
 	rrb(b, 1);
-	write(1, "rrr\n", 3);
+	write(1, "rrr\n", 4);
 }

@@ -50,9 +50,11 @@ t_stack	*parse_arguments(int argc, char *argv[])
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
-	t_stack	*stack_b;
+	//t_stack	*stack_b;
 	int		i;
 
+	if (argc < 2)
+		return (0);
 	stack_a = parse_arguments(argc, argv);
 	if (!stack_a)
 		error_exit();
@@ -61,29 +63,113 @@ int	main(int argc, char *argv[])
 		free_stack(stack_a);
 		return (0);
 	}
-	i = 1;
-	stack_b = NULL;
-	pb(&stack_a, &stack_b);
-	i = 1;
+
+	//checking pb
+
+
+	// i = 1;
+	// stack_b = NULL;
+	// pb(&stack_a, &stack_b);
+	// i = 1;
+	// t_stack	*a = stack_a;
+	// while (a)
+	// {
+	// 	printf("in stack_a\nvalue %d: %d\n", i, a->number);
+	// 	a = a->next;
+	// 	i++;
+	// }
+	// printf("\n");
+	// i = 1;
+	// t_stack	*b = stack_b;
+	// while (b)
+	// {
+	// 	printf("in stack_b\nvalue %d: %d\n", i, b->number);
+	// 	b = b->next;
+	// 	i++;
+	// }
+	// if (stack_a != NULL)
+	// {
+	// 	free_stack(stack_a);
+	// 	stack_a = NULL;
+	// }
+	// if (stack_b != NULL)
+	// {
+	// 	free_stack(stack_b);
+	// 	stack_b = NULL;
+	// }
+
+
+	//checking sa
+
+	// sa(&stack_a, 0);
+
+	// t_stack	*a = stack_a;
+	// i = 1;
+	// while (a)
+	// {
+	// 	printf("in stack_a\nvalue %d: %d\n", i, a->number);
+	// 	a = a->next;
+	// 	i++;
+	// }
+	// free_stack(stack_a);
+
+
+
+
+	//checking ss
+
+	// stack_b = new_node(45);
+	// t_stack *another = new_node(56);
+	// add_back(&stack_b, another);
+	
+	// ss(&stack_a, &stack_b);
+	// t_stack	*a = stack_a;
+	// t_stack *b = stack_b;
+	// i = 1;
+	// while (stack_a)
+	// {
+	// 	printf("in stack_a\nvalue %d: %d\n", i, stack_a->number);
+	// 	stack_a = stack_a->next;
+	// 	i++;
+	// }
+	// //printf("%p\n", (void *)stack_a);
+	// i = 1;
+	// while (stack_b)
+	// {
+	// 	printf("in stack_b\nvalue %d: %d\n", i, stack_b->number);
+	// 	stack_b = stack_b->next;
+	// 	i++;
+	// }
+	
+	// free_stack(b);
+	// free_stack(a);
+
+
+	//checking ra
+
+	// ra(&stack_a, 0);
+	// t_stack	*a = stack_a;
+	// i = 1;
+	// while (stack_a)
+	// {
+	// 	printf("in stack_a\nvalue %d: %d\n", i, stack_a->number);
+	// 	stack_a = stack_a->next;
+	// 	i++;
+	// }
+	// free_stack(a);
+	// return (0);
+
+	//checking rra
+
+	rra(&stack_a, 0);
 	t_stack	*a = stack_a;
-	while (a)
-	{
-		printf("in stack_a\nvalue %d: %d\n", i, a->number);
-		a = a->next;
-		i++;
-	}
-	printf("\n");
 	i = 1;
-	t_stack	*b = stack_b;
-	while (b)
+	while (stack_a)
 	{
-		printf("in stack_b\nvalue %d: %d\n", i, b->number);
-		b = b->next;
+		printf("in stack_a\nvalue %d: %d\n", i, stack_a->number);
+		stack_a = stack_a->next;
 		i++;
 	}
-	if (stack_a)
-		free_stack(stack_a);
-	if (stack_b)
-		free_stack(stack_b);
+	free_stack(a);
 	return (0);
 }

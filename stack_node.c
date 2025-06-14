@@ -30,5 +30,4 @@ void	add_back(t_stack **stack, t_stack *new_node)
 		last_node = last_node->next;
 	last_node->next = new_node;
 	new_node->prev = last_node;
-	new_node->next = NULL;
 }

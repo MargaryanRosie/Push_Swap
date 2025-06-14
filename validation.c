@@ -15,6 +15,8 @@ int	is_valid_number(char *str)
 {
 	int	i;
 
+	if (!str || !str[0])
+		return (0);
 	i = 0;
 	if (!str || str[0] == '\0')
 		return (0);

@@ -13,14 +13,14 @@ void	free_split(char **input)
 	free(input);
 }
 
-void	free_stack(t_stack *stack)     //the whole linked list
+void	free_stack(t_stack *stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
-	while(stack)
+	while (stack)
 	{
-		tmp = stack->next;
-		free(stack);
-		stack = tmp;
+		tmp = stack;
+		stack = stack->next;
+		free(tmp);
 	}
 }
