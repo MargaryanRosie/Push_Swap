@@ -81,7 +81,9 @@ int	main(int argc, char *argv[])
 		b = b->next;
 		i++;
 	}
-	free_stack(stack_a);
-	free_stack(stack_b);
+	if (stack_a)
+		free_stack(stack_a);
+	if (stack_b)
+		free_stack(stack_b);
 	return (0);
 }

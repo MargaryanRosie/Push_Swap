@@ -42,5 +42,6 @@ void	sb(t_stack **b, int flag);
 void	ss(t_stack **a, t_stack **b);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
+void	ra(t_stack **a, int flag);
 
 #endif

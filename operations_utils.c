@@ -30,32 +30,7 @@ t_stack	*pop(t_stack **stack)
 }
 
 
-//top becomes buttom    
 
-//[10] [20] [30]
-//[20] [30] [10]
-
-void	rotate(t_stack **stack)
-{
-	if(!(*stack) || !((*stack)->next))
-		return ;
-	
-	t_stack *first_node = *stack;
-
-	//to find the last node we need to go from first to last
-	t_stack *last_node = *stack;
-
-	while (last_node->next)
-		last_node = last_node->next;
-	
-	//last node is already pointing to the last element
-	*stack = first_node->next;
-	(*stack)->prev = NULL;
-
-	first_node->next = NULL;
-	last_node->next = first_node;
-	first_node->prev = last_node;
-}
 
 
 //reverse rotate, bottom becomes top
