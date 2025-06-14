@@ -35,5 +35,12 @@ void	check_overflow(long result, int sign);
 int	ft_atoi(char *str);
 int	is_sorted(t_stack *stack);
 void	free_stack(t_stack *stack);
+void	push_node(t_stack **stack, t_stack *node);
+t_stack	*pop(t_stack **stack);
+void	sa(t_stack **a, int flag);
+void	sb(t_stack **b, int flag);
+void	ss(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
 
 #endif

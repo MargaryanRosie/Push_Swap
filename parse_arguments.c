@@ -48,6 +48,7 @@ t_stack	*parse_arguments(int argc, char *argv[])
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
+	t_stack	*stack_b;
 	int		i;
 
 	stack_a = parse_arguments(argc, argv);
@@ -59,11 +60,31 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	i = 1;
+	t_stack	*a = stack_a;
+	while (a)
+	{
+		printf("Before popping\nin stack_a\nvalue %d: %d\n", i, a->number);
+		a = a->next;
+		i++;
+	}
+	stack_b = NULL;
+	pb(&stack_a, &stack_b);
+	i = 1;
 	while (stack_a)
 	{
-		printf("value %d: %d\n", i, stack_a->number);
+		printf("in stack_a\nvalue %d: %d\n", i, stack_a->number);
 		stack_a = stack_a->next;
+		i++;
+	}
+	printf("\n");
+	i = 1;
+	while (stack_b)
+	{
+		printf("in stack_b\nvalue %d: %d\n", i, stack_b->number);
+		stack_b = stack_b->next;
+		i++;
 	}
 	free_stack(stack_a);
-	return 0;
+	free_stack(stack_b);
+	return (0);
 }
