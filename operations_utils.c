@@ -2,77 +2,6 @@
 #include <stdlib.h>
 #include "push_swap.h"
 
-
-// //stack declared as a static array 
-// int stack[100];
-// int top = -1;        // index of the top element
-
-// void push(int x)
-// {
-// 	stack[++top] = x; 
-// }
-
-// int pop()
-// {
-// 	return (stack[top--]);      //returns then decrements
-// }
-
-
-
-// //stack implementation using linked list
-
-// typedef struct s_node
-// {
-// 	int nbr;
-// 	struct s_node *next;
-// } t_node;
-
-
-// t_node *top = NULL;     
-
-// void push(t_node **top, int value)
-// {
-// 	t_node *new_node = (t_node* )malloc(sizeof(t_node));
-// 	if(!new_node)
-// 		return;
-
-// 	new_node->nbr = value;
-// 	new_node->next = *top;              //we make it to point to the current top
-
-// 	//current top becomes the new node
-// 	*top = new_node;
-// }
-
-// int pop(t_node **top)
-// {
-// 	if(*top == NULL)
-// 		return (-1);
-// 	t_node *temp = *top;     
-// 	int popped_value = temp->nbr;
-
-// 	*top = temp->next;
-// 	free(temp);
-
-// 	return (popped_value);
-// }
-
-
-
-
-//stack implementstion using doubly linked list
-
-// typedef struct s_stack
-// {
-// 	int nbr;
-// 	struct s_stack *next;
-// 	struct s_stack *prev;
-// } t_stack;
-
-
-//t_stack *head = NULL;
-
-
-
 void	push_node(t_stack **stack, t_stack *node)
 {
 	if (!stack || !node)
@@ -85,11 +14,8 @@ void	push_node(t_stack **stack, t_stack *node)
 	*stack = node;
 }
 
-
-
 t_stack	*pop(t_stack **stack)
 {
-	printf("Calling pop function\n");
 	t_stack	*top;
 
 	if (!(*stack) || !stack)
@@ -102,28 +28,6 @@ t_stack	*pop(t_stack **stack)
 	top->prev = NULL;
 	return (top);
 }
-
-
-//swaping top two elements
-
-void	swap(t_stack	**stack)
-{
-	if(!(*stack) || !((*stack)->next))
-		return ;
-	
-	t_stack *first_node = *stack;
-	t_stack *second_node = first_node->next;
-
-	first_node->next = second_node->next;
-	if (second_node->next)
-		second_node->next->prev = first_node;
-	second_node->prev = NULL;
-	second_node->next = first_node;
-	first_node->prev = second_node;
-
-	*stack = second_node;
-}
-
 
 
 //top becomes buttom    

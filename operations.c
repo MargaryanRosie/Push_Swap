@@ -66,7 +66,7 @@ void	pa(t_stack **a, t_stack **b)
 
 void	pb(t_stack **a, t_stack **b)
 {
-	printf("Executing pb function\n");
+	//printf("Executing pb function\n");
 	t_stack	*popped_node;
 
 	if (!(*a))
@@ -75,7 +75,7 @@ void	pb(t_stack **a, t_stack **b)
 		return ;
 	}
 	popped_node = pop(a);
-	printf("popped_node value: %d\n", popped_node->number);
+	//printf("popped_node value: %d\n", popped_node->number);
 	if (!popped_node)
 		return ;
 	push_node(b, popped_node);

@@ -10,7 +10,7 @@ int	is_duplicate(t_stack *stack, int number)
 		if (stack->number == number)
 			return (1);             //duplicate found
 		else
-			stack = stack->next;	
+			stack = stack->next;
 	}
 	return (0);
 }
@@ -26,7 +26,8 @@ t_stack	*parse_arguments(int argc, char *argv[])
 	if (argc == 2)
 		inputs = ft_split(argv[1]);
 	else
-		inputs = &argv[1];
+		inputs = &argv[1];        //argv is null terminated, no problem here
+
 	i = 0;
 	stack = NULL;
 	while (inputs[i])
@@ -34,6 +35,7 @@ t_stack	*parse_arguments(int argc, char *argv[])
 		if (!is_valid_number(inputs[i]))
 			error_exit();
 		number = ft_atoi(inputs[i]);
+		//printf("number: %d\n", number);
 		if (is_duplicate(stack, number))              //if stack is NULL, returns 0
 			error_exit();
 		add_back(&stack, new_node(number));          //if *stack is NULL, this is handled in add_back function
@@ -60,28 +62,23 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	i = 1;
-	t_stack	*a = stack_a;
-	while (a)
-	{
-		printf("Before popping\nin stack_a\nvalue %d: %d\n", i, a->number);
-		a = a->next;
-		i++;
-	}
 	stack_b = NULL;
 	pb(&stack_a, &stack_b);
 	i = 1;
-	while (stack_a)
+	t_stack	*a = stack_a;
+	while (a)
 	{
-		printf("in stack_a\nvalue %d: %d\n", i, stack_a->number);
-		stack_a = stack_a->next;
+		printf("in stack_a\nvalue %d: %d\n", i, a->number);
+		a = a->next;
 		i++;
 	}
 	printf("\n");
 	i = 1;
-	while (stack_b)
+	t_stack	*b = stack_b;
+	while (b)
 	{
-		printf("in stack_b\nvalue %d: %d\n", i, stack_b->number);
-		stack_b = stack_b->next;
+		printf("in stack_b\nvalue %d: %d\n", i, b->number);
+		b = b->next;
 		i++;
 	}
 	free_stack(stack_a);
