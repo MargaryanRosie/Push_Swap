@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void	free_split(char **input)
 {
@@ -23,4 +23,10 @@ void	free_stack(t_stack *stack)
 		stack = stack->next;
 		free(tmp);
 	}
+}
+
+void	error_exit(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
 }

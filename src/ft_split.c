@@ -1,4 +1,5 @@
-#include "push_swap.h"
+#include "../include/push_swap.h"
+
 
 int	word_count(char *str)
 {
@@ -12,7 +13,7 @@ int	word_count(char *str)
 	{
 		while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
 			i++;
-		if (str[i] != ' ' && !(str[i] >= 9 && str[i] <= 13))
+		if (str[i] && str[i] != ' ' && !(str[i] >= 9 && str[i] <= 13))
 			wc++;
 		while (str[i] && str[i] != ' ' && !(str[i] >= 9 && str[i] <= 13))
 			i++;
@@ -50,32 +51,30 @@ char	**ft_split(char *str)
 	while (str[i])
 	{
 		skip_spaces(str, &i);
-		if(!process_word(output, str, &i, &j))
+		if (!process_word(output, str, &i, &j))
 			return (NULL);
 	}
-	output[wc] = NULL;
+	output[j] = NULL;
 	return (output);
 }
 
 
-// int main()
+// int main(int argc, char *argv[])
 // {
-// 	char str[] = "hello world aha che";
-// 	char **output = ft_split(str);
-
-// 	int i = 0;
-// 	while (output[i])
+// 	char **output;
+// 	int j = 1;
+// 	while (j < argc)
 // 	{
-// 		printf("%s\n", output[i]);
-// 		i++;
+// 		output = ft_split(argv[j]);
+// 		int i = 0;
+// 		while (output[i])
+// 		{
+// 			printf("%s\n", output[i]);
+// 			free(output[i]);
+// 			i++;
+// 		}
+// 		free(output);
+// 		j++;
 // 	}
-
-// 	i--;
-// 	while (i >= 0)
-// 	{
-// 		free(output[i]);
-// 		i--;
-// 	}
-// 	free(output);
 // 	return 0;
 // }

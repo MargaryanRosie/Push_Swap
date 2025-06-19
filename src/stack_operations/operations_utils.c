@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "push_swap.h"
+#include "../include/push_swap.h"
+
 
 void	push_node(t_stack **stack, t_stack *node)
 {
 	if (!stack || !node)
 		return ;
-
 	node->next = *stack;
 	if (*stack)
 		(*stack)->prev = node;

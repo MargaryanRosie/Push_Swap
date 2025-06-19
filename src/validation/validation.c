@@ -1,14 +1,8 @@
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 int	is_digit(char c)
 {
 	return (c >= '0' && c <= '9');
-}
-
-void	error_exit(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
 }
 
 int	is_valid_number(char *str)
@@ -22,7 +16,7 @@ int	is_valid_number(char *str)
 		return (0);
 	if (str[i] == '+' || str[i] == '-')
 	{
-		if (!str[i + 1])
+		if (!str[i + 1])                                //1 nshan e u tiv
 			return (0);
 		i++;
 	}
@@ -42,7 +36,6 @@ void	check_overflow(long result, int sign)
 		error_exit();
 }
 
-
 int	ft_atoi(char *str)
 {
 	int		i;
@@ -60,7 +53,7 @@ int	ft_atoi(char *str)
 	}
 	while (str[i])
 	{
-		result = result * 10 + (str[i] - '0');
+		result = result * 10 + (str[i] - '0');                             //0-ov sksvoxy okay e darnum sranov
 		check_overflow(result, sign);
 		i++;
 	}

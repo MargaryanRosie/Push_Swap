@@ -1,5 +1,4 @@
-#include "push_swap.h"
-
+#include "../include/push_swap.h"
 
 //i-ov flag em dnum vor haskana tpi te chtpi
 void	sa(t_stack **a, int flag)
@@ -21,7 +20,6 @@ void	sa(t_stack **a, int flag)
 	if (flag == 0)
 		write(1, "sa\n", 3);
 }
-
 
 void	sb(t_stack **b, int flag)
 {
@@ -50,7 +48,6 @@ void	ss(t_stack **a, t_stack **b)
 	write(1, "ss\n", 3);
 }
 
-
 void	pa(t_stack **a, t_stack **b)
 {
 	t_stack	*popped_node;
@@ -66,7 +63,6 @@ void	pa(t_stack **a, t_stack **b)
 
 void	pb(t_stack **a, t_stack **b)
 {
-	//printf("Executing pb function\n");
 	t_stack	*popped_node;
 
 	if (!(*a))
@@ -75,10 +71,8 @@ void	pb(t_stack **a, t_stack **b)
 		return ;
 	}
 	popped_node = pop(a);
-	//printf("popped_node value: %d\n", popped_node->number);
 	if (!popped_node)
 		return ;
 	push_node(b, popped_node);
 	write(1, "pb\n", 3);
 }
-
