@@ -53,7 +53,7 @@ t_stack	*parse_arguments(int argc, char *argv[])
 	return (stack);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 
@@ -63,8 +63,10 @@ int main(int argc, char *argv[])
 		printf("error");
 		exit(1);
 	}
+	//sort_two(&stack_a);
+	sort_three(&stack_a);
 	t_stack *a = stack_a;
-	while(stack_a)
+	while (stack_a)
 	{
 		printf("%d\n", stack_a->number);
 		stack_a = stack_a->next;
