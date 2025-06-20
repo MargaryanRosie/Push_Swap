@@ -54,5 +54,6 @@ int		find_min_value(t_stack *stack);
 int		find_min_index(t_stack *stack);
 int		stack_size(t_stack *a);
 void	sort_four(t_stack **a, t_stack **b);
+void	sort_five(t_stack **a, t_stack **b);
 
 #endif

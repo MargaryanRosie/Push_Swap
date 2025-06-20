@@ -1,6 +1,5 @@
 NAME = push_swap
 CC = cc
-S = -g3 -fsanitize=address
 CFLAGS = -Wall -Wextra -Werror -Iinclude
 
 SRC = src/stack_operations/operations_2.c \
@@ -21,10 +20,10 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(S) $(CFLAGS) $(OBJ) -o $(NAME)                
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)                
 
 %.o: %.c
-	$(CC) $(S) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

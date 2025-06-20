@@ -72,7 +72,8 @@ int	main(int argc, char *argv[])
 	// int min_index = find_min_index(stack_a);
 	// printf("min: %d\n", min);
 	// printf("min index: %d\n", min_index);
-	sort_four(&stack_a, &stack_b);
+	//sort_four(&stack_a, &stack_b);
+	sort_five(&stack_a, &stack_b);
 	t_stack *a = stack_a;
 	while (stack_a)
 	{
