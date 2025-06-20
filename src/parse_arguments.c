@@ -53,34 +53,34 @@ t_stack	*parse_arguments(int argc, char *argv[])
 	return (stack);
 }
 
-int	main(int argc, char *argv[])
-{
-	t_stack	*stack_a;
-	t_stack *stack_b;
+// int	main(int argc, char *argv[])
+// {
+// 	t_stack	*stack_a;
+// 	t_stack *stack_b;
 
-	stack_b = NULL;
+// 	stack_b = NULL;
 
-	stack_a = parse_arguments(argc, argv);
-	if (!stack_a)
-	{
-		printf("error");
-		exit(1);
-	}
-	//sort_two(&stack_a);
-	//sort_three(&stack_a);
-	// int min = find_min_value(stack_a);
-	// int min_index = find_min_index(stack_a);
-	// printf("min: %d\n", min);
-	// printf("min index: %d\n", min_index);
-	//sort_four(&stack_a, &stack_b);
-	sort_five(&stack_a, &stack_b);
-	t_stack *a = stack_a;
-	while (stack_a)
-	{
-		printf("%d\n", stack_a->number);
-		stack_a = stack_a->next;
-	}
-	free_stack(a);
-	a = NULL;
-	return (0);
-}
+// 	stack_a = parse_arguments(argc, argv);
+// 	if (!stack_a)
+// 	{
+// 		printf("error");
+// 		exit(1);
+// 	}
+// 	//sort_two(&stack_a);
+// 	//sort_three(&stack_a);
+// 	// int min = find_min_value(stack_a);
+// 	// int min_index = find_min_index(stack_a);
+// 	// printf("min: %d\n", min);
+// 	// printf("min index: %d\n", min_index);
+// 	//sort_four(&stack_a, &stack_b);
+// 	sort_five(&stack_a, &stack_b);
+// 	t_stack *a = stack_a;
+// 	while (stack_a)
+// 	{
+// 		printf("%d\n", stack_a->number);
+// 		stack_a = stack_a->next;
+// 	}
+// 	free_stack(a);
+// 	a = NULL;
+// 	return (0);
+// }
