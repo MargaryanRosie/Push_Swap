@@ -33,3 +33,35 @@ void	sort_three(t_stack **a)
 			sa(a, 0);                                                  //max is third
 	}
 }
+
+
+void	sort_four(t_stack **a, t_stack **b)
+{
+	int	i;
+	int	rotations;
+
+	if (!a ||!(*a) || !b)
+		return ;
+	//ete kesic poqr e indexy, ra(), ete kesic mec rra()
+	i = find_min_index(*a);
+	if (i <= stack_size(*a)/2)
+	{
+		while (i > 0)
+		{
+			ra(a, 0);
+			i--;
+		}
+	}
+	else
+	{
+		rotations = stack_size(*a) - i;
+		while (rotations > 0)
+		{
+			rra(a, 0);
+			rotations--;
+		}
+	}
+	pb(a, b);
+	sort_three(a);
+	pa(a, b);
+}

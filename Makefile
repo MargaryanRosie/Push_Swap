@@ -13,7 +13,8 @@ SRC = src/stack_operations/operations_2.c \
 	src/ft_split.c \
 	src/ft_split_utils.c \
 	src/parse_arguments.c \
-	src/sorting/sort_small_input.c
+	src/sorting/sort_small_input.c \
+	src/sorting/sorting_utils.c
 
 OBJ = $(SRC:.c=.o)
      

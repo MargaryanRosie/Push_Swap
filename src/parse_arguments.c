@@ -56,6 +56,9 @@ t_stack	*parse_arguments(int argc, char *argv[])
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
+	t_stack *stack_b;
+
+	stack_b = NULL;
 
 	stack_a = parse_arguments(argc, argv);
 	if (!stack_a)
@@ -64,7 +67,12 @@ int	main(int argc, char *argv[])
 		exit(1);
 	}
 	//sort_two(&stack_a);
-	sort_three(&stack_a);
+	//sort_three(&stack_a);
+	// int min = find_min_value(stack_a);
+	// int min_index = find_min_index(stack_a);
+	// printf("min: %d\n", min);
+	// printf("min index: %d\n", min_index);
+	sort_four(&stack_a, &stack_b);
 	t_stack *a = stack_a;
 	while (stack_a)
 	{

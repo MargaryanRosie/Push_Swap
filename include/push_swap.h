@@ -50,5 +50,9 @@ void	rrb(t_stack **b, int flag);
 void	rrr(t_stack **a, t_stack **b);
 void	sort_two(t_stack **a);
 void	sort_three(t_stack **a);
+int		find_min_value(t_stack *stack);
+int		find_min_index(t_stack *stack);
+int		stack_size(t_stack *a);
+void	sort_four(t_stack **a, t_stack **b);
 
 #endif
