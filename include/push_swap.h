@@ -9,7 +9,8 @@
 
 typedef struct s_stack
 {
-	int				number;
+	int		number;   // Original value
+    int		index;    // Index used for radix sort
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
@@ -58,5 +59,6 @@ void	sort_five(t_stack **a, t_stack **b);
 int		*stack_to_arr(t_stack *stack, int size);
 int		get_index(int *arr, int size, int num);
 void	sort_array(int *array, int size);
+int		get_max_bits(t_stack *stack);
 
 #endif

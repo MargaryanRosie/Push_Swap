@@ -15,7 +15,8 @@ SRC = src/stack_operations/operations_2.c \
 	src/sorting/sort/sort_small_input.c \
 	src/sorting/sort/sorting_utils.c \
 	src/sorting/utils/stack_to_array.c \
-	src/sorting/utils/normalize_stack.c
+	src/sorting/utils/normalize_stack.c \
+	src/sorting/sort/sort_big_input.c
 
 OBJ = $(SRC:.c=.o)
      

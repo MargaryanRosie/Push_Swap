@@ -49,28 +49,28 @@ void	sort_array(int *array, int size)
 }
 
 
-int	main(int argc, char *argv[])
-{
-	t_stack	*stack_a;
-	int		*arr;
-	int size;
+// int	main(int argc, char *argv[])
+// {
+// 	t_stack	*stack_a;
+// 	int		*arr;
+// 	int size;
 
-	stack_a = parse_arguments(argc, argv);
-	if (!stack_a)
-	{
-		printf("error");
-		exit(1);
-	}
-	size = stack_size(stack_a);
-	arr = stack_to_arr(stack_a, size);
-	sort_array(arr, size);
-	int i = 0;
-	while (i < size)
-	{
-		printf("%d\n", arr[i]);
-		i++;
-	}
-	free_stack(stack_a);
-	free(arr);
-	return (0);
-}
+// 	stack_a = parse_arguments(argc, argv);
+// 	if (!stack_a)
+// 	{
+// 		printf("error");
+// 		exit(1);
+// 	}
+// 	size = stack_size(stack_a);
+// 	arr = stack_to_arr(stack_a, size);
+// 	sort_array(arr, size);
+// 	int i = 0;
+// 	while (i < size)
+// 	{
+// 		printf("%d\n", arr[i]);
+// 		i++;
+// 	}
+// 	free_stack(stack_a);
+// 	free(arr);
+// 	return (0);
+// }
