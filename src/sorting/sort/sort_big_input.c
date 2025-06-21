@@ -50,30 +50,29 @@ void	binary_radix_sort(t_stack **a, t_stack **b)
 	}
 }
 
-int	main(int argc, char *argv[])
-{
-	t_stack	*stack_a;
-	t_stack *stack_b;              //push_nodei mej e stack_b- i NULL y handle anelu pahy
+// int	main(int argc, char *argv[])
+// {
+// 	t_stack	*stack_a;
+// 	t_stack *stack_b;              //push_nodei mej e stack_b- i NULL y handle anelu pahy
 
-	stack_b = NULL;
-	stack_a = parse_arguments(argc, argv);
-	if (!stack_a)
-	{
-		printf("error");
-		exit(1);
-	}
-	normalize_stack(stack_a);    //we initialize the indexes in stack a
-	int max_bits = get_max_bits(stack_a);
-	printf("max bits: %d\n", max_bits);
-	binary_radix_sort(&stack_a, &stack_b);
-	t_stack *a = stack_a;
-	while (stack_a)
-	{
-		printf("indexes: %d\n", stack_a->index);
-		printf("numbers: %d\n", stack_a->number);
-		stack_a = stack_a->next;
-	}
-	free_stack(a);
-	return (0);
-}
+// 	stack_b = NULL;
+// 	stack_a = parse_arguments(argc, argv);
+// 	if (!stack_a)
+// 	{
+// 		printf("error");
+// 		exit(1);
+// 	}
+// 	normalize_stack(stack_a);    //we initialize the indexes in stack a
+// 	int max_bits = get_max_bits(stack_a);
+// 	printf("max bits: %d\n", max_bits);
+// 	binary_radix_sort(&stack_a, &stack_b);
+// 	t_stack *a = stack_a;
+// 	while (stack_a)
+// 	{
+// 		printf("numbers: %d\n", stack_a->number);
+// 		stack_a = stack_a->next;
+// 	}
+// 	free_stack(a);
+// 	return (0);
+// }
 

@@ -62,5 +62,6 @@ void	sort_array(int *array, int size);
 int		get_max_bits(t_stack *stack);
 void	normalize_stack(t_stack *stack);
 void	binary_radix_sort(t_stack **a, t_stack **b);
+void	sort_stack(t_stack **stack_a, t_stack **stack_b, int size);
 
 #endif
