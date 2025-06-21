@@ -68,7 +68,6 @@ static int	define_chunk_size(int size)
 		chunk_count = 10;
 	else
 		chunk_count = 20;
-	
 	chunk_size = size / chunk_count;
 	if (chunk_size == 0)
 		chunk_size = 1;

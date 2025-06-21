@@ -33,9 +33,6 @@ void	sort_three(t_stack **a)
 		rra(a, 0);
 }
 
-
-
-
 void	sort_four(t_stack **a, t_stack **b)
 {
 	int	i;

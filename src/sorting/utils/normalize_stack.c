@@ -31,15 +31,3 @@ void	normalize_stack(t_stack *stack)
 	}
 	free(arr);
 }
-
-
-
-/*
-for example if the input is [50 -10 90 5]
-we sort the array
-[-10 5 50 90]
-indexes are 0 1 2 3 
-
-for each node in the stack i insert the index according to the number
-so the indexed stack will be [ 2 0 3 1 ]
-*/

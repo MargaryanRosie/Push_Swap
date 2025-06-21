@@ -7,6 +7,7 @@ CFLAGS = -g3 -fsanitize=address -Wall -Wextra -Werror -Iinclude
 SRC = src/stack_operations/operations_2.c \
 	src/stack_operations/operations_utils.c \
 	src/stack_operations/operations.c \
+	src/stack_operations/operations_1.c \
 	src/stack_operations/stack_node.c \
 	src/validation/validation.c \
 	src/sorting/sort/check_if_sorted.c \

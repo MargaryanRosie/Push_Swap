@@ -13,7 +13,6 @@ t_stack	*new_node(int value)
 	return (new_node);
 }
 
-
 void	add_back(t_stack **stack, t_stack *new_node)
 {
 	t_stack	*last_node;

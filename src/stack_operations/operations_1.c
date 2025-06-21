@@ -1,6 +1,6 @@
 #include "../include/push_swap.h"
 
-void	ra(t_stack **a, int flag)
+void	rra(t_stack **a, int flag)
 {
 	t_stack	*first_node;
 	t_stack	*last_node;
@@ -11,16 +11,17 @@ void	ra(t_stack **a, int flag)
 	last_node = *a;
 	while (last_node->next)
 		last_node = last_node->next;
-	*a = first_node->next;
-	(*a)->prev = NULL;
-	first_node->next = NULL;
+	if (last_node->prev)
+		last_node->prev->next = NULL;
+	last_node->prev = NULL;
 	last_node->next = first_node;
 	first_node->prev = last_node;
+	*a = last_node;
 	if (flag == 0)
-		write(1, "ra\n", 3);
+		write(1, "rra\n", 4);
 }
 
-void	rb(t_stack **b, int flag)
+void	rrb(t_stack **b, int flag)
 {
 	t_stack	*first_node;
 	t_stack	*last_node;
@@ -31,18 +32,19 @@ void	rb(t_stack **b, int flag)
 	last_node = *b;
 	while (last_node->next)
 		last_node = last_node->next;
-	*b = first_node->next;
-	(*b)->prev = NULL;
-	first_node->next = NULL;
+	if (last_node->prev)
+		last_node->prev->next = NULL;
+	last_node->prev = NULL;
 	last_node->next = first_node;
 	first_node->prev = last_node;
+	*b = last_node;
 	if (flag == 0)
-		write(1, "rb\n", 3);
+		write(1, "rrb\n", 4);
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b)
 {
-	ra(a, 1);
-	rb(b, 1);
-	write(1, "r\n", 3);
+	rra(a, 1);
+	rrb(b, 1);
+	write(1, "rrr\n", 4);
 }

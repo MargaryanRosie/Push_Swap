@@ -5,11 +5,37 @@ int	is_duplicate(t_stack *stack, int number)
 	while (stack)
 	{
 		if (stack->number == number)
-			return (1);             //duplicate found
+			return (1);
 		else
 			stack = stack->next;
 	}
 	return (0);
+}
+
+static void	handle_input(char **inputs, t_stack **stack)
+{
+	int j = 0;
+	int number;
+
+	while (inputs[j])
+	{
+		if (!is_valid_number(inputs[j]))
+		{
+			free_split(inputs);
+			free_stack(*stack);
+			error_exit();
+		}
+		number = ft_atoi(inputs[j]);
+		if (is_duplicate(*stack, number))
+		{
+			free_split(inputs);
+			free_stack(*stack);
+			error_exit();
+		}
+		add_back(stack, new_node(number));
+		j++;
+	}
+	free_split(inputs);
 }
 
 t_stack	*parse_arguments(int argc, char *argv[])
@@ -17,8 +43,6 @@ t_stack	*parse_arguments(int argc, char *argv[])
 	t_stack	*stack;
 	char	**inputs;
 	int		i;
-	int		j;
-	int		number;
 
 	stack = NULL;
 	i = 1;
@@ -30,24 +54,7 @@ t_stack	*parse_arguments(int argc, char *argv[])
 			free_stack(stack);
 			error_exit();
 		}
-		j = 0;
-		while (inputs[j])
-		{
-			if (!is_valid_number(inputs[j]))
-			{
-				free_stack(stack);
-				error_exit();
-			}
-			number = ft_atoi(inputs[j]);
-			if (is_duplicate(stack, number))
-			{
-				free_stack(stack);
-				error_exit();
-			}
-			add_back(&stack, new_node(number));          //if *stack is NULL, this is handled in add_back function
-			j++;
-		}
-		free_split(inputs);
+		handle_input(inputs, &stack);
 		i++;
 	}
 	return (stack);

@@ -40,7 +40,7 @@ int	main(int argc, char *argv[])
 		printf("%d ", a->number);
 		a = a->next;
 	}
-	free_stack(a);
+	free_stack(stack_a);
 	//free_stack(stack_a);
 	return (0);
 }

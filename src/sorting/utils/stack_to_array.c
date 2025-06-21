@@ -48,7 +48,6 @@ void	sort_array(int *array, int size)
 	}
 }
 
-
 // int	main(int argc, char *argv[])
 // {
 // 	t_stack	*stack_a;

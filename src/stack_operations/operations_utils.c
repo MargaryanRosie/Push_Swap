@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "../include/push_swap.h"
 
-
 void	push_node(t_stack **stack, t_stack *node)
 {
 	if (!stack || !node)

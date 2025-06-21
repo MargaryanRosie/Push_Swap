@@ -1,6 +1,5 @@
 #include "../include/push_swap.h"
 
-
 int	word_count(char *str)
 {
 	int	i;
@@ -8,7 +7,6 @@ int	word_count(char *str)
 
 	i = 0;
 	wc = 0;
-
 	while (str[i])
 	{
 		while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
@@ -57,7 +55,6 @@ char	**ft_split(char *str)
 	output[j] = NULL;
 	return (output);
 }
-
 
 // int main(int argc, char *argv[])
 // {

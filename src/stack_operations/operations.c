@@ -1,6 +1,5 @@
 #include "../include/push_swap.h"
 
-//i-ov flag em dnum vor haskana tpi te chtpi
 void	sa(t_stack **a, int flag)
 {
 	t_stack	*first_node;

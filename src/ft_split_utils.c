@@ -1,7 +1,5 @@
 #include "../include/push_swap.h"
 
-
-
 void	free_remaining(char **output, int j)
 {
 	while (j >= 0)
@@ -35,7 +33,7 @@ int	allocate_word(char **output, char *str, int start, int i, int j)
 	int	word_len;
 
 	word_len = i - start;
-	output[j] = (char*)malloc(sizeof(char) * (word_len + 1));
+	output[j] = (char *)malloc(sizeof(char) * (word_len + 1));
 	if (!output[j])
 	{
 		free_remaining(output, j);
