@@ -48,3 +48,31 @@ int	find_min_index(t_stack *stack)
 	}
 	return (i);
 }
+
+int	ft_sqrt(int number)
+{
+	int	i;
+
+	i = 1;
+	while (i < number)
+	{
+		if (i * i == number)
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+int	ft_cbrt(int number)
+{
+	int	i;
+
+	i = 1;
+	while (i < number)
+	{
+		if (i * i * i == number)
+			return (i);
+		i++;
+	}
+	return (-1);
+}

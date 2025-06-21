@@ -12,7 +12,7 @@ void	sort_stack(t_stack **stack_a, t_stack **stack_b, int size)
 	else if (size == 5)
 		sort_five(stack_a, stack_b);
 	else
-		binary_radix_sort(stack_a, stack_b);
+		butterfly_sort(stack_a, stack_b);
 }
 
 int	main(int argc, char *argv[])
@@ -34,6 +34,13 @@ int	main(int argc, char *argv[])
 	}
 	size = stack_size(stack_a);
 	sort_stack(&stack_a, &stack_b, size);
+	// t_stack *a = stack_a;
+	// while (a)
+	// {
+	// 	printf("%d ", a->number);
+	// 	a = a->next;
+	// }
+	// free_stack(a);
 	free_stack(stack_a);
 	return (0);
 }

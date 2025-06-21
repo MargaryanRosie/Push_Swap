@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iinclude
+CFLAGS = -g3 -fsanitize=address -Wall -Wextra -Werror -Iinclude
 
 ##-g3 -fsanitize=address 
 
@@ -18,7 +18,8 @@ SRC = src/stack_operations/operations_2.c \
 	src/sorting/sort/sorting_utils.c \
 	src/sorting/utils/stack_to_array.c \
 	src/sorting/utils/normalize_stack.c \
-	src/sorting/sort/sort_big_input.c \
+	src/sorting/sort/sort_big_input_with_radix.c \
+	src/sorting/sort/sort_big_with_butterfly.c \
 	src/push_swap.c
 
 OBJ = $(SRC:.c=.o)
