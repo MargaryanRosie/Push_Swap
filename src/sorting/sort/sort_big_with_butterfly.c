@@ -34,13 +34,10 @@ static int	find_position(t_stack **b, int index)
 static void	push_back(t_stack **a, t_stack **b)
 {
 	int	max_index;
-	int	size_b;
-
-	size_b = stack_size(*b);
-	max_index = size_b - 1;
+	max_index = stack_size(*b) - 1;
 	while (*b)
 	{
-		if (find_position(b, (*b)->index) <= size_b / 2)              //in the first half of the stack
+		if (find_position(b, (*b)->index) <= stack_size(*b) / 2)              //in the first half of the stack
 		{
 			while ((*b)->index !=  max_index)
 				rb(b, 0);
