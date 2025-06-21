@@ -8,5 +8,5 @@ int	is_sorted(t_stack *stack)
 			return (0);
 		stack = stack->next;
 	}
-	return (1);        //sorted
+	return (1);
 }

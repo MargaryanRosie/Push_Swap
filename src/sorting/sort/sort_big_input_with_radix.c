@@ -44,7 +44,7 @@ void	binary_radix_sort(t_stack **a, t_stack **b)
 				ra(a, 0);
 			j++;
 		}
-		while (*b)                  //we push back the elements of b
+		while (*b)
 			pa(a, b);
 		i++;
 	}

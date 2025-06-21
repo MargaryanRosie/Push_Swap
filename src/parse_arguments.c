@@ -14,9 +14,10 @@ int	is_duplicate(t_stack *stack, int number)
 
 static void	handle_input(char **inputs, t_stack **stack)
 {
-	int j = 0;
-	int number;
+	int	j;
+	int	number;
 
+	j = 0;
 	while (inputs[j])
 	{
 		if (!is_valid_number(inputs[j]))
