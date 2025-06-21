@@ -60,5 +60,7 @@ int		*stack_to_arr(t_stack *stack, int size);
 int		get_index(int *arr, int size, int num);
 void	sort_array(int *array, int size);
 int		get_max_bits(t_stack *stack);
+void	normalize_stack(t_stack *stack);
+void	binary_radix_sort(t_stack **a, t_stack **b);
 
 #endif

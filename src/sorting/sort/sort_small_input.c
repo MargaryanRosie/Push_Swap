@@ -88,5 +88,4 @@ void	sort_five(t_stack **a, t_stack **b)
 	pb(a, b);
 	sort_four(a, b);
 	pa(a, b);
-	//pa(a, b);
 }
