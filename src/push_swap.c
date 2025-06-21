@@ -34,13 +34,6 @@ int	main(int argc, char *argv[])
 	}
 	size = stack_size(stack_a);
 	sort_stack(&stack_a, &stack_b, size);
-	t_stack *a = stack_a;
-	while (stack_a)
-	{
-		printf("%d ", stack_a->number);
-		stack_a = stack_a->next;
-	}
-	free_stack(a);
-	//free_stack(stack_a);
+	free_stack(stack_a);
 	return (0);
 }
