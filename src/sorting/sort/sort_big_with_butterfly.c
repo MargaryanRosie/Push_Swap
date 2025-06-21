@@ -34,35 +34,51 @@ static int	find_position(t_stack **b, int index)
 static void	push_back(t_stack **a, t_stack **b)
 {
 	int	max_index;
-	max_index = stack_size(*b) - 1;
+	int	pos;
+
 	while (*b)
 	{
-		if (find_position(b, (*b)->index) <= stack_size(*b) / 2)              //in the first half of the stack
+		max_index = stack_size(*b) - 1;
+		pos = find_position(b, max_index);
+		if ((*b)->index == max_index)
+			pa(a, b);
+		else if (pos <= stack_size(*b) / 2)
 		{
-			while ((*b)->index !=  max_index)
+			while ((*b)->index != max_index)
 				rb(b, 0);
+			pa(a, b);
 		}
 		else
 		{
-			while ((*b)->index !=  max_index)                          //second half
+			while ((*b)->index != max_index)
 				rrb(b, 0);
+			pa(a, b);
 		}
-		pa(a, b);
-		max_index--;
 	}
+}
+
+static int	define_chunk_size(int size)
+{
+	int	chunk_count;
+	int	chunk_size;
+
+	if (size > 5 && size <= 100)
+		chunk_count = 4;
+	else if (size <= 500)
+		chunk_count = 10;
+	
+	chunk_size = size / chunk_count;
+	return (chunk_size);
 }
 
 void	butterfly_sort(t_stack **a, t_stack **b)
 {
-	//considering normalized stack
 	int next_expected;
 	int	chunk_size;
 	int	current_index;
-	int	size;
 
-	size = stack_size(*a);
 	next_expected = 0;                                //the next smallest index
-	chunk_size = ft_sqrt(size) + ft_cbrt(size);       //sqrt vorovhetev optimal chunk chap e, voch mec e voch poqr
+	chunk_size = define_chunk_size(stack_size(*a));
 	while (*a)
 	{
 		current_index = (*a)->index;
