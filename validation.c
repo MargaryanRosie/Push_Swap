@@ -46,6 +46,7 @@ int	ft_atoi(char *str, int *overflow)
 	i = 0;
 	sign = 1;
 	result = 0;
+	*overflow = 0;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
@@ -57,7 +58,7 @@ int	ft_atoi(char *str, int *overflow)
 		result = result * 10 + (str[i] - '0');                            //0-ov sksvoxy okay e darnum sranov
 		if (check_overflow(result, sign))
 		{
-			*overflow = check_overflow(result, sign);    //1 if overflow
+			*overflow = 1;                      //1 if overflow
 			break;
 		}
 		i++;
