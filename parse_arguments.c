@@ -43,6 +43,12 @@ static void	handle_input(char **inputs, t_stack **stack)
 	int	number;
 
 	j = 0;
+	if (inputs[j] == NULL)
+	{
+		free_split(inputs);
+		free_stack(*stack);
+		error_exit();
+	}
 	while (inputs[j])
 	{
 		validation(inputs, &number, j, stack);
