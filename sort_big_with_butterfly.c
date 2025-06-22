@@ -63,11 +63,11 @@ static int	define_chunk_size(int size)
 	int	chunk_size;
 
 	if (size > 5 && size <= 100)
-		chunk_count = 4;
+		chunk_count = 5;
 	else if (size <= 500)
-		chunk_count = 10;
+		chunk_count = 14;
 	else
-		chunk_count = 20;
+		chunk_count = 25;
 	chunk_size = size / chunk_count;
 	if (chunk_size == 0)
 		chunk_size = 1;

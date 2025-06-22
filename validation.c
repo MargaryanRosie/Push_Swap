@@ -37,6 +37,7 @@ int	check_overflow(long long result, int sign)
 	return (0);
 }
 
+
 int	ft_atoi(char *str, int *overflow)
 {
 	int			i;
@@ -58,7 +59,7 @@ int	ft_atoi(char *str, int *overflow)
 		result = result * 10 + (str[i] - '0');                            //0-ov sksvoxy okay e darnum sranov
 		if (check_overflow(result, sign))
 		{
-			*overflow = 1;                      //1 if overflow
+			*overflow = check_overflow(result, sign);    //1 if overflow
 			break;
 		}
 		i++;
