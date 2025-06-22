@@ -29,7 +29,7 @@ int	is_valid_number(char *str)
 	return (1);
 }
 
-int	check_overflow(long result, int sign)
+int	check_overflow(long long result, int sign)
 {
 	if ((sign == 1 && result > 2147483647)
 		|| (sign == -1 && - result < -2147483648))
@@ -39,9 +39,9 @@ int	check_overflow(long result, int sign)
 
 int	ft_atoi(char *str, int *overflow)
 {
-	int		i;
-	int		sign;
-	long	result;
+	int			i;
+	int			sign;
+	long long	result;
 
 	i = 0;
 	sign = 1;
@@ -54,8 +54,12 @@ int	ft_atoi(char *str, int *overflow)
 	}
 	while (str[i])
 	{
-		result = result * 10 + (str[i] - '0');                             //0-ov sksvoxy okay e darnum sranov
-		*overflow = check_overflow(result, sign);    //1 if overflow
+		result = result * 10 + (str[i] - '0');                            //0-ov sksvoxy okay e darnum sranov
+		if (check_overflow(result, sign))
+		{
+			*overflow = check_overflow(result, sign);    //1 if overflow
+			break;
+		}
 		i++;
 	}
 	return ((int)(result * sign));

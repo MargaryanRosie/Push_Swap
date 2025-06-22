@@ -30,7 +30,7 @@ void	add_back(t_stack **stack, t_stack *new_node);
 int		is_digit(char c);
 void	error_exit(void);
 int		is_valid_number(char *str);
-int		check_overflow(long result, int sign);
+int		check_overflow(long long result, int sign);
 int		ft_atoi(char *str, int *overflow);
 int		is_sorted(t_stack *stack);
 void	free_stack(t_stack *stack);
