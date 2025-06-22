@@ -1,7 +1,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -31,8 +30,8 @@ void	add_back(t_stack **stack, t_stack *new_node);
 int		is_digit(char c);
 void	error_exit(void);
 int		is_valid_number(char *str);
-void	check_overflow(long result, int sign);
-int		ft_atoi(char *str);
+int		check_overflow(long result, int sign);
+int		ft_atoi(char *str, int *overflow);
 int		is_sorted(t_stack *stack);
 void	free_stack(t_stack *stack);
 void	push_node(t_stack **stack, t_stack *node);
@@ -67,4 +66,4 @@ int		ft_cbrt(int number);
 void	butterfly_sort(t_stack **a, t_stack **b);
 int		ft_strncmp(char *s1, char *s2, int n);
 
-#endif
+# endif

@@ -12,6 +12,31 @@ int	is_duplicate(t_stack *stack, int number)
 	return (0);
 }
 
+static void	validation(char **inputs, int *number, int j, t_stack **stack)
+{
+	int	overflow;
+
+	if (!is_valid_number(inputs[j]))
+	{
+		free_split(inputs);
+		free_stack(*stack);
+		error_exit();
+	}
+	*number = ft_atoi(inputs[j], &overflow);
+	if (overflow)
+	{
+		free_split(inputs);
+		free_stack(*stack);
+		error_exit();
+	}
+	if (is_duplicate(*stack, *number))
+	{
+		free_split(inputs);
+		free_stack(*stack);
+		error_exit();
+	}
+}
+
 static void	handle_input(char **inputs, t_stack **stack)
 {
 	int	j;
@@ -20,19 +45,7 @@ static void	handle_input(char **inputs, t_stack **stack)
 	j = 0;
 	while (inputs[j])
 	{
-		if (!is_valid_number(inputs[j]))
-		{
-			free_split(inputs);
-			free_stack(*stack);
-			error_exit();
-		}
-		number = ft_atoi(inputs[j]);
-		if (is_duplicate(*stack, number))
-		{
-			free_split(inputs);
-			free_stack(*stack);
-			error_exit();
-		}
+		validation(inputs, &number, j, stack);
 		add_back(stack, new_node(number));
 		j++;
 	}
