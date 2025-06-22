@@ -1,4 +1,4 @@
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void	sort_two(t_stack **a)
 {
@@ -55,9 +55,9 @@ void	sort_four(t_stack **a, t_stack **b)
 			i--;
 		}
 	}
-	pb(a, b);
+	pb(a, b, 0);
 	sort_three(a);
-	pa(a, b);
+	pa(a, b, 0);
 }
 
 void	sort_five(t_stack **a, t_stack **b)
@@ -82,7 +82,7 @@ void	sort_five(t_stack **a, t_stack **b)
 			i--;
 		}
 	}
-	pb(a, b);
+	pb(a, b, 0);
 	sort_four(a, b);
-	pa(a, b);
+	pa(a, b, 0);
 }

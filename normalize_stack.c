@@ -1,4 +1,4 @@
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 int	get_index(int *arr, int size, int num)
 {

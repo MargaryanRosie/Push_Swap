@@ -1,4 +1,4 @@
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 int	*stack_to_arr(t_stack *stack, int size)
 {

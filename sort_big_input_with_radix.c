@@ -1,4 +1,4 @@
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 //for using radix sort we first need to know the max bits, this means we find the max number and compute the bits
 //and as we converted the stack to indexes, we do all these with the indexes
@@ -39,13 +39,13 @@ void	binary_radix_sort(t_stack **a, t_stack **b)
 		{
 			//1- y ...001 e, mnacacy zroyanum en
 			if ((((*a)->index >> i) & 1) == 0)            //if the least significant bit is 0, we push it to stack B
-				pb(a, b);
+				pb(a, b, 0);
 			else                                          //if the lsb is 1, we just rotate it in the stack a
 				ra(a, 0);
 			j++;
 		}
 		while (*b)
-			pa(a, b);
+			pa(a, b, 0);
 		i++;
 	}
 }

@@ -1,4 +1,4 @@
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void	ra(t_stack **a, int flag)
 {
@@ -40,9 +40,10 @@ void	rb(t_stack **b, int flag)
 		write(1, "rb\n", 3);
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, int flag)
 {
 	ra(a, 1);
 	rb(b, 1);
-	write(1, "r\n", 3);
+	if (flag == 0)
+		write(1, "rr\n", 3);
 }

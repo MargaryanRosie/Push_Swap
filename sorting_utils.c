@@ -1,4 +1,4 @@
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 int	stack_size(t_stack *a)
 {
@@ -35,7 +35,7 @@ int	find_min_value(t_stack *stack)
 int	find_min_index(t_stack *stack)
 {
 	int	i;
-	int min;
+	int	min;
 
 	i = 0;
 	min = find_min_value(stack);

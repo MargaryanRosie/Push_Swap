@@ -1,4 +1,4 @@
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 int	is_duplicate(t_stack *stack, int number)
 {

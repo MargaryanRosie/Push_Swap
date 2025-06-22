@@ -1,4 +1,4 @@
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 //1.divide the normalized input into chunks
 //2.orinak unem 5 chunk
@@ -41,18 +41,18 @@ static void	push_back(t_stack **a, t_stack **b)
 		max_index = stack_size(*b) - 1;
 		pos = find_position(b, max_index);
 		if ((*b)->index == max_index)
-			pa(a, b);
+			pa(a, b, 0);
 		else if (pos <= stack_size(*b) / 2)
 		{
 			while ((*b)->index != max_index)
 				rb(b, 0);
-			pa(a, b);
+			pa(a, b, 0);
 		}
 		else
 		{
 			while ((*b)->index != max_index)
 				rrb(b, 0);
-			pa(a, b);
+			pa(a, b, 0);
 		}
 	}
 }
@@ -87,13 +87,13 @@ void	butterfly_sort(t_stack **a, t_stack **b)
 		current_index = (*a)->index;
 		if (current_index <= next_expected)
 		{
-			pb(a, b);
+			pb(a, b, 0);
 			rb(b, 0);
 			next_expected++;
 		}
 		else if (current_index <= next_expected + chunk_size)          //ed chunki mej e, bayc amenapoqry che
 		{
-			pb(a, b);
+			pb(a, b, 0);
 			next_expected++;
 		}
 		else
