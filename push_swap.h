@@ -6,7 +6,7 @@
 /*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 13:35:28 by romargar          #+#    #+#             */
-/*   Updated: 2025/06/23 16:12:17 by romargar         ###   ########.fr       */
+/*   Updated: 2025/06/23 16:44:51 by romargar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
+void				skip_whitespaces(char *str, int *i);
+void				free_remaining(char **output, int k);
+int					word_count(char *str);
 char				*ft_strncpy(char *dest, char *src, int n);
 int					process_word(char **output, char *str, int *i, int *j);
-int					word_count(char *str);
-void				skip_spaces(char *str, int *i);
-void				loop_the_word(char *str, int *i);
 char				**ft_split(char *str);
 int					is_duplicate(t_stack *stack, int number);
 void				free_split(char **input);

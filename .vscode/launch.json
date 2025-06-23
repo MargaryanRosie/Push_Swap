@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/rosie/push_swap",
-      "program": "/home/rosie/push_swap/build/Debug/outDebug",
+      "cwd": "/home/romargar/ha/libft/hah",
+      "program": "/home/romargar/ha/libft/hah/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
