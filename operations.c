@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/23 13:35:12 by romargar          #+#    #+#             */
+/*   Updated: 2025/06/23 13:35:13 by romargar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sa(t_stack **a, int flag)
@@ -68,7 +80,7 @@ void	pb(t_stack **a, t_stack **b, int flag)
 
 	if (!(*a))
 	{
-		printf("a is empty\n");
+		//printf("a is empty\n");
 		return ;
 	}
 	popped_node = pop(a);

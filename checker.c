@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/23 13:31:32 by romargar          #+#    #+#             */
+/*   Updated: 2025/06/23 13:31:34 by romargar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include "get_next_line.h"
 
@@ -26,7 +38,13 @@ static void	do_instruction(char *instr, t_stack **a, t_stack **b)
 	else if (ft_strncmp(instr, "rrr\n", 4) == 0)
 		rrr(a, b, 1);
 	else
+	{
+		free_stack(*a);
+		free_stack(*b);
+		get_next_line(-102);
+		free(instr);
 		error_exit();
+	}
 }
 
 int	main(int argc, char *argv[])
@@ -44,6 +62,7 @@ int	main(int argc, char *argv[])
 	instr = get_next_line(0);
 	while (instr)
 	{
+		printf("instr: %s", instr);
 		do_instruction(instr, &stack_a, &stack_b);
 		free(instr);
 		instr = get_next_line(0);
@@ -55,5 +74,6 @@ int	main(int argc, char *argv[])
 		write(1, "KO\n", 3);
 	free_stack(stack_a);
 	free_stack(stack_b);  //ete nuynisk NULL e okay e, ban chi anum functiony
+	get_next_line(-102);
 	return (0);
 }
