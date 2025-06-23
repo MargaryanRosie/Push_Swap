@@ -6,7 +6,7 @@
 /*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 13:36:03 by romargar          #+#    #+#             */
-/*   Updated: 2025/06/23 13:36:04 by romargar         ###   ########.fr       */
+/*   Updated: 2025/06/23 14:35:48 by romargar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,9 @@ int	check_overflow(long long result, int sign)
 {
 	if ((sign == 1 && result > 2147483647)
 		|| (sign == -1 && - result < -2147483648))
-		return (1);            //overflow
+		return (1);
 	return (0);
 }
-
 
 int	ft_atoi(char *str, int *overflow)
 {
@@ -68,11 +67,11 @@ int	ft_atoi(char *str, int *overflow)
 	}
 	while (str[i])
 	{
-		result = result * 10 + (str[i] - '0');                            //0-ov sksvoxy okay e darnum sranov
+		result = result * 10 + (str[i] - '0');
 		if (check_overflow(result, sign))
 		{
-			*overflow = check_overflow(result, sign);    //1 if overflow
-			break;
+			*overflow = check_overflow(result, sign);
+			break ;
 		}
 		i++;
 	}

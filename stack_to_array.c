@@ -6,7 +6,7 @@
 /*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 13:35:58 by romargar          #+#    #+#             */
-/*   Updated: 2025/06/23 13:35:59 by romargar         ###   ########.fr       */
+/*   Updated: 2025/06/23 14:36:04 by romargar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,29 +59,3 @@ void	sort_array(int *array, int size)
 		i++;
 	}
 }
-
-// int	main(int argc, char *argv[])
-// {
-// 	t_stack	*stack_a;
-// 	int		*arr;
-// 	int size;
-
-// 	stack_a = parse_arguments(argc, argv);
-// 	if (!stack_a)
-// 	{
-// 		printf("error");
-// 		exit(1);
-// 	}
-// 	size = stack_size(stack_a);
-// 	arr = stack_to_arr(stack_a, size);
-// 	sort_array(arr, size);
-// 	int i = 0;
-// 	while (i < size)
-// 	{
-// 		printf("%d\n", arr[i]);
-// 		i++;
-// 	}
-// 	free_stack(stack_a);
-// 	free(arr);
-// 	return (0);
-// }

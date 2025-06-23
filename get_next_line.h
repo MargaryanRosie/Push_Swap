@@ -6,7 +6,7 @@
 /*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 13:32:15 by romargar          #+#    #+#             */
-/*   Updated: 2025/06/23 13:32:16 by romargar         ###   ########.fr       */
+/*   Updated: 2025/06/23 15:21:20 by romargar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ char	*get_next_line(int fd);
 int		find_newline(char *str);
 char	*ft_strjoin(char *str1, char *str2);
 char	*ft_strchr(const char *str, int c);
-//char	*ft_strncpy(char *dest, char *src, int n);
 size_t	ft_strlen(const char *str);
 char	*extract_line(char *str);
 char	*get_remaining(char *str);

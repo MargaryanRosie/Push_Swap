@@ -6,7 +6,7 @@
 /*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 13:32:03 by romargar          #+#    #+#             */
-/*   Updated: 2025/06/23 13:32:04 by romargar         ###   ########.fr       */
+/*   Updated: 2025/06/23 14:42:34 by romargar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,6 @@ size_t	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
-
-// char	*ft_strncpy(char *dest, char *src, int n)
-// {
-// 	int	i;
-
-// 	if (!dest || !src)
-// 		return (NULL);
-// 	i = 0;
-// 	while (src[i] && i < n)
-// 	{
-// 		dest[i] = src[i];
-// 		i++;
-// 	}
-// 	while (i < n)
-// 	{
-// 		dest[i] = '\0';
-// 		i++;
-// 	}
-// 	return (dest);
-// }
 
 char	*ft_strjoin(char *str1, char *str2)
 {

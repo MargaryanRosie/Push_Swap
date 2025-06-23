@@ -6,7 +6,7 @@
 /*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 13:32:10 by romargar          #+#    #+#             */
-/*   Updated: 2025/06/23 13:32:11 by romargar         ###   ########.fr       */
+/*   Updated: 2025/06/23 14:42:12 by romargar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ char	*get_next_line(int fd)
 	int			res;
 
 	if (fd == -102)
-		free(remaining_part);	
+		free(remaining_part);
 	if (fd < 0 || BUFFER_SIZE < 0 || BUFFER_SIZE > INT_MAX)
 		return (NULL);
 	if (!remaining_part)
@@ -116,6 +116,5 @@ char	*get_next_line(int fd)
 	if (!extracted_line)
 		return (clean_remaining_part(&remaining_part), NULL);
 	remaining_part = get_remaining(remaining_part);
-	printf("rem: [%p]\n", remaining_part);
 	return (extracted_line);
 }

@@ -5,32 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/23 13:31:46 by romargar          #+#    #+#             */
-/*   Updated: 2025/06/23 13:31:47 by romargar         ###   ########.fr       */
+/*   Created: 2025/06/23 16:28:16 by romargar          #+#    #+#             */
+/*   Updated: 2025/06/23 16:33:33 by romargar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
 
-void	free_remaining(char **output, int j)
-{
-	while (j >= 0)
-	{
-		free(output[j]);
-		output[j] = NULL;
-		j--;
-	}
-	free(output);
-	output = NULL;
-}
-
-char *ft_strncpy(char *dest, char *src, int n)
+char	*ft_strncpy(char *dest, char *src, int n)
 {
 	int	i;
 
+	i = 0;
 	if (!dest || !src)
 		return (NULL);
-	i = 0;
 	while (src[i] && i < n)
 	{
 		dest[i] = src[i];
@@ -40,32 +29,37 @@ char *ft_strncpy(char *dest, char *src, int n)
 	return (dest);
 }
 
-int	allocate_word(char **output, char *str, int start, int i, int j)
+int	word_count(char *str)
 {
-	int	word_len;
+	int	i;
+	int	wc;
 
-	word_len = i - start;
-	output[j] = (char *)malloc(sizeof(char) * (word_len + 1));
-	if (!output[j])
+	i = 0;
+	wc = 0;
+	while (str[i])
 	{
-		free_remaining(output, j);
-		return (0);
+		while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
+			i++;
+		if (str[i])
+			wc++;
+		while (str[i] && !(str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
+			i++;
 	}
-	ft_strncpy(output[j], &str[start], word_len);
-	return (1);
+	return (wc);
 }
 
-int	process_word(char **output, char *str, int *i, int *j)
+void	free_remaining(char **output, int k)
 {
-	int	start;
-
-	start = *i;
-	loop_the_word(str, i);
-	if (*i > start)
+	while (k >= 0)
 	{
-		if (!allocate_word(output, str, start, *i, *j))
-			return (0);
-		(*j)++;
+		free(output[k]);
+		k--;
 	}
-	return (1);
+	free(output);
+}
+
+void	skip_whitespaces(char *str, int *i)
+{
+	while (str[*i] && (str[*i] == ' ' || str[*i] == '\t' || str[*i] == '\n'))
+		(*i)++;
 }

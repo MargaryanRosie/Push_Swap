@@ -6,7 +6,7 @@
 /*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 13:35:17 by romargar          #+#    #+#             */
-/*   Updated: 2025/06/23 13:35:18 by romargar         ###   ########.fr       */
+/*   Updated: 2025/06/23 15:33:00 by romargar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ t_stack	*parse_arguments(int argc, char *argv[])
 		inputs = ft_split(argv[i]);
 		if (!inputs)
 		{
+			printf("split returns NULL");
 			free_stack(stack);
 			error_exit();
 		}
@@ -91,35 +92,3 @@ t_stack	*parse_arguments(int argc, char *argv[])
 	}
 	return (stack);
 }
-
-// int	main(int argc, char *argv[])
-// {
-// 	t_stack	*stack_a;
-// 	t_stack *stack_b;
-
-// 	stack_b = NULL;
-
-// 	stack_a = parse_arguments(argc, argv);
-// 	if (!stack_a)
-// 	{
-// 		printf("error");
-// 		exit(1);
-// 	}
-// 	//sort_two(&stack_a);
-// 	//sort_three(&stack_a);
-// 	// int min = find_min_value(stack_a);
-// 	// int min_index = find_min_index(stack_a);
-// 	// printf("min: %d\n", min);
-// 	// printf("min index: %d\n", min_index);
-// 	//sort_four(&stack_a, &stack_b);
-// 	sort_five(&stack_a, &stack_b);
-// 	t_stack *a = stack_a;
-// 	while (stack_a)
-// 	{
-// 		printf("%d\n", stack_a->number);
-// 		stack_a = stack_a->next;
-// 	}
-// 	free_stack(a);
-// 	a = NULL;
-// 	return (0);
-// }

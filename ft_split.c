@@ -5,85 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/23 13:31:51 by romargar          #+#    #+#             */
-/*   Updated: 2025/06/23 13:31:52 by romargar         ###   ########.fr       */
+/*   Created: 2025/06/23 16:18:40 by romargar          #+#    #+#             */
+/*   Updated: 2025/06/23 16:27:06 by romargar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
 
-int	word_count(char *str)
+int	process_the_word(char *str, char **output, int *i, int *k)
 {
-	int	i;
-	int	wc;
+	int	j;
+	int	len;
 
-	i = 0;
-	wc = 0;
-	while (str[i])
+	j = *i;
+	while (str[*i] && (str[*i] != ' ' && str[*i] != '\t' && str[*i] != '\n'))
+		(*i)++;
+	len = *i - j;
+	if (len > 0)
 	{
-		while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
-			i++;
-		if (str[i] && str[i] != ' ' && !(str[i] >= 9 && str[i] <= 13))
-			wc++;
-		while (str[i] && str[i] != ' ' && !(str[i] >= 9 && str[i] <= 13))
-			i++;
+		output[*k] = (char *)malloc(sizeof(char) * (len + 1));
+		if (!output[*k])
+		{
+			free_remaining(output, *k);
+			return (0);
+		}
+		ft_strncpy(output[*k], &str[j], len);
+		(*k)++;
 	}
-	return (wc);
-}
-
-void	skip_spaces(char *str, int *i)
-{
-	while (str[*i] && (str[*i] == ' ' || (str[*i] >= 9 && str[*i] <= 13)))
-		(*i)++;
-}
-
-void	loop_the_word(char *str, int *i)
-{
-	while (str[*i] && str[*i] != ' ' && !(str[*i] >= 9 && str[*i] <= 13))
-		(*i)++;
+	return (1);
 }
 
 char	**ft_split(char *str)
 {
 	int		i;
-	char	**output;
+	int		k;
 	int		wc;
-	int		j;
+	char	**output;
 
-	if (!str)
-		return (NULL);
-	wc = word_count(str);
-	output = (char **)malloc(sizeof(char *) * (wc + 1));
-	if (!output)
-		return (NULL);
 	i = 0;
-	j = 0;
+	k = 0;
+	wc = word_count(str);
+	output = malloc(sizeof(char *) * (wc + 1));
+	if (!str || !output)
+		return (NULL);
 	while (str[i])
 	{
-		skip_spaces(str, &i);
-		if (!process_word(output, str, &i, &j))
+		skip_whitespaces(str, &i);
+		if (!process_the_word(str, output, &i, &k))
 			return (NULL);
 	}
-	output[j] = NULL;
+	output[k] = NULL;
 	return (output);
 }
-
-// int main(int argc, char *argv[])
-// {
-// 	char **output;
-// 	int j = 1;
-// 	while (j < argc)
-// 	{
-// 		output = ft_split(argv[j]);
-// 		int i = 0;
-// 		while (output[i])
-// 		{
-// 			printf("%s\n", output[i]);
-// 			free(output[i]);
-// 			i++;
-// 		}
-// 		free(output);
-// 		j++;
-// 	}
-// 	return 0;
-// }

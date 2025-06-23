@@ -6,7 +6,7 @@
 /*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 13:35:12 by romargar          #+#    #+#             */
-/*   Updated: 2025/06/23 13:35:13 by romargar         ###   ########.fr       */
+/*   Updated: 2025/06/23 14:39:45 by romargar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	pa(t_stack **a, t_stack **b, int flag)
 	if (!(*b))
 		return ;
 	popped_node = pop(b);
-	if (!popped_node)         //the stack was empty
+	if (!popped_node)
 		return ;
 	push_node(a, popped_node);
 	if (flag == 0)
@@ -79,10 +79,7 @@ void	pb(t_stack **a, t_stack **b, int flag)
 	t_stack	*popped_node;
 
 	if (!(*a))
-	{
-		//printf("a is empty\n");
 		return ;
-	}
 	popped_node = pop(a);
 	if (!popped_node)
 		return ;

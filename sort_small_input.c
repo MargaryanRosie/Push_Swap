@@ -6,7 +6,7 @@
 /*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 13:35:43 by romargar          #+#    #+#             */
-/*   Updated: 2025/06/23 13:35:44 by romargar         ###   ########.fr       */
+/*   Updated: 2025/06/23 14:36:54 by romargar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	sort_four(t_stack **a, t_stack **b)
 	int	i;
 
 	i = find_min_index(*a);
-	if (i <= stack_size(*a)/2)
+	if (i <= stack_size(*a) / 2)
 	{
 		while (i > 0)
 		{

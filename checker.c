@@ -6,12 +6,21 @@
 /*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 13:31:32 by romargar          #+#    #+#             */
-/*   Updated: 2025/06/23 13:31:34 by romargar         ###   ########.fr       */
+/*   Updated: 2025/06/23 15:11:27 by romargar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "get_next_line.h"
+
+static void	free_if_wrong_instr(char *instr, t_stack **a, t_stack **b)
+{
+	free_stack(*a);
+	free_stack(*b);
+	get_next_line(-102);
+	free(instr);
+	error_exit();
+}
 
 static void	do_instruction(char *instr, t_stack **a, t_stack **b)
 {
@@ -38,13 +47,15 @@ static void	do_instruction(char *instr, t_stack **a, t_stack **b)
 	else if (ft_strncmp(instr, "rrr\n", 4) == 0)
 		rrr(a, b, 1);
 	else
-	{
-		free_stack(*a);
-		free_stack(*b);
-		get_next_line(-102);
-		free(instr);
-		error_exit();
-	}
+		free_if_wrong_instr(instr, a, b);
+}
+
+static void	print_ok_ko(t_stack *a, t_stack *b)
+{
+	if (is_sorted(a) && stack_size(b) == 0)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 }
 
 int	main(int argc, char *argv[])
@@ -62,18 +73,14 @@ int	main(int argc, char *argv[])
 	instr = get_next_line(0);
 	while (instr)
 	{
-		printf("instr: %s", instr);
 		do_instruction(instr, &stack_a, &stack_b);
 		free(instr);
 		instr = get_next_line(0);
 	}
 	free(instr);
-	if (is_sorted(stack_a) && stack_size(stack_b) == 0)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
+	print_ok_ko(stack_a, stack_b);
 	free_stack(stack_a);
-	free_stack(stack_b);  //ete nuynisk NULL e okay e, ban chi anum functiony
+	free_stack(stack_b);
 	get_next_line(-102);
 	return (0);
 }

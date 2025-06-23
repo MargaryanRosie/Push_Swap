@@ -6,16 +6,14 @@
 #    By: romargar <romargar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 13:32:22 by romargar          #+#    #+#              #
-#    Updated: 2025/06/23 13:32:23 by romargar         ###   ########.fr        #
+#    Updated: 2025/06/23 16:28:04 by romargar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 BONUS_NAME = checker
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iinclude -g3
-
-##-g3 -fsanitize=address 
+CFLAGS = -Wall -Wextra -Werror -Iinclude
 
 SRC = operations_2.c \
 	operations_utils.c \
@@ -32,7 +30,6 @@ SRC = operations_2.c \
 	sorting_utils.c \
 	stack_to_array.c \
 	normalize_stack.c \
-	sort_big_input_with_radix.c \
 	sort_big_with_butterfly.c \
 	push_swap.c
 

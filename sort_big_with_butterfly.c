@@ -6,25 +6,11 @@
 /*   By: romargar <romargar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 13:35:38 by romargar          #+#    #+#             */
-/*   Updated: 2025/06/23 13:35:39 by romargar         ###   ########.fr       */
+/*   Updated: 2025/06/23 14:37:52 by romargar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-//1.divide the normalized input into chunks
-//2.orinak unem 5 chunk
-//n = 0(the next smallest index)     u offset = 5
-//sksum em nayel [0, 5] chunky
-//hertov nayum em stacki indexnery
-//ete arajin indexy == n(aysinqn amenapoqr indexn e), push em anum B u rotate, vor pahi stacki verjum
-//u n++, vor arden nayem hajord amenapoqry
-//bayc ete havasar che n bayc nuyn chunki mej e, aysinqn index <= n + offset, uxxaki push em anum B, bayc rotate petq che, amenapoqr indexy che
-//stex el em n++ anum, vor offsety araj gna, bayc payman enq grum vor  ed next expected-ic (n) poqrery eli push ani B u rotate
-//isk ete ed offseti mek che, iran uxxaki pahum enq A-i mej, bayc rotate enq anum, vor A-i mnacac elementnery nayenq
-//mec chunk chapy vat e, vorovhetev push em anum tvery random dzevov, voch mi dzevov sortavorvac chen
-//bayc poqrik chunkeri depqum, skzbum push em anum orinak 0-5 mijakayqi index, heto 1-6, heto 2-7...hamematabar organized e, u heto push backi jmn aveli 
-//qich operationner kogtagorcvi
 
 static int	find_position(t_stack **b, int index)
 {
@@ -88,11 +74,11 @@ static int	define_chunk_size(int size)
 
 void	butterfly_sort(t_stack **a, t_stack **b)
 {
-	int next_expected;
+	int	next_expected;
 	int	chunk_size;
 	int	current_index;
 
-	next_expected = 0;                                //the next smallest index
+	next_expected = 0;
 	chunk_size = define_chunk_size(stack_size(*a));
 	while (*a)
 	{
@@ -103,7 +89,7 @@ void	butterfly_sort(t_stack **a, t_stack **b)
 			rb(b, 0);
 			next_expected++;
 		}
-		else if (current_index <= next_expected + chunk_size)          //ed chunki mej e, bayc amenapoqry che
+		else if (current_index <= next_expected + chunk_size)
 		{
 			pb(a, b, 0);
 			next_expected++;
